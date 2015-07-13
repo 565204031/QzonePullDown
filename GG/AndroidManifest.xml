@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sskgg.gg"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+   <uses-permission android:name="android.permission.INTERNET"/>  
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <!-- 联系人列表 -->
+        <activity
+            android:name="com.sskgg.gg.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- 登陆页面 -->
+          <activity
+            android:name="com.sskgg.gg.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+          <!-- 对话页面  -->
+        <activity
+            android:name="com.sskgg.gg.MessageActivity"
+            android:label="@string/app_name" >
+        </activity>
+           <!--会议室邀请页面 -->
+         <activity
+            android:name="com.sskgg.gg.MultiUserInvite"
+            android:label="@string/app_name" >
+        </activity>
+          <!-- 会议室消息页面 -->
+         <activity
+            android:name="com.sskgg.gg.MultiUserMessage"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- 在线获得消息接收者 -->
+          <receiver android:name="com.sskgg.gg.receiver.onlineMessageReceiver">
+              <intent-filter android:priority="1000">
+                  <action android:name="com.sskgg.gg.onlinemessage"/>
+              </intent-filter>
+              </receiver>
+              
+         <service android:name="com.sskgg.gg.service.ConnectService"></service>
+         
+    </application>
+
+</manifest>
